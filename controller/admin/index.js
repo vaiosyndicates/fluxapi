@@ -95,17 +95,25 @@ const AdminController = {
 
       let searchTrx = await adminService.getTrxbyId({ "_id": new ObjectId(id) })
       if(searchTrx) {
-        const payload = {
-          isDeleted: !searchTrx.isDeleted,
-          updatedAt: new Date()
+        const status = searchTrx.status
+        if(status === 'done') {
+          res.json({ 
+            responseCode: 199, 
+            messages: "Can't delete data which already done",
+          });
+        } else {
+          const payload = {
+            isDeleted: !searchTrx.isDeleted,
+            updatedAt: new Date()
+          }
+    
+          const updateStatus = adminService.updateTrx(id, payload )
+          res.json({ 
+            responseCode: 200, 
+            messages: "success delete from admin",
+          });
         }
-  
-        const updateStatus = adminService.updateTrx(id, payload )
-        res.json({ 
-          responseCode: 200, 
-          status: "success delete from admin",
-          data: updateStatus
-        });
+       
       } else {
         res.json({ 
           responseCode: 404, 
@@ -114,7 +122,7 @@ const AdminController = {
         });
       }
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({responseCode: 500, error: error.message });
     }
   },
 }

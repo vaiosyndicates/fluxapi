@@ -13,7 +13,7 @@ exports.getTrxbyId = async (ids) => {
 };
 
 exports.getTrxbyStatus = async (status) => {
-  return await TransactionModel.find(status).exec();
+  return await TransactionModel.find({$and:[status, {isDeleted: false}]}).exec();
 };
 
 exports.updateTrx = async (id, trx) => {
