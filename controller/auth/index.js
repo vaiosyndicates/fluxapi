@@ -7,10 +7,18 @@ dotenv.config()
 const AuthController = {
   getUser: async (req, res) => {
     try {
-      const users = await authService.getAllBlogs();
-      res.json({ data: users, status: "success" });
+      const users = await authService.getAllUsers();
+      res.status(200).json({
+        responseCode: 200,
+        message: "success",
+        data: users, 
+      });
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ 
+        responseCode: 500,
+        message: "success",
+        error: error.message 
+      });
     }
   },
   createUser: async (req, res) => {

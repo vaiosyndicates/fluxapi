@@ -12,6 +12,10 @@ exports.getTrxbyId = async (ids) => {
   return await TransactionModel.findOne(ids);
 };
 
+exports.getTrxbyStatus = async (status) => {
+  return await TransactionModel.find(status).exec();
+};
+
 exports.updateTrx = async (id, trx) => {
   return await TransactionModel.findByIdAndUpdate(id, trx);
 };

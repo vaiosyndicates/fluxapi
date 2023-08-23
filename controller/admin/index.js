@@ -12,6 +12,31 @@ const AdminController = {
       res.status(500).json({ error: error.message });
     }
   },
+  getTrxbyStatus: async (req, res) => {
+    const { status } = req.params
+    const payload = {
+      status: status 
+    }
+    // console.log(payload)
+    try {
+      const trx = await adminService.getTrxbyStatus(payload);
+      if(trx) {
+        res.json({
+          responseCode: 200, 
+          message: "Success",
+          data: trx, 
+        });
+      } else {
+        res.json({
+          responseCode: 404, 
+          message: "Data not found",
+        });
+      }
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
   createTrx: async (req, res) => {
     try {
       const { trxName, trxDetail, sender, recipient, amount } = req.body

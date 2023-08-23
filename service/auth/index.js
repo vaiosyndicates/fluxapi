@@ -1,6 +1,6 @@
 const UserModel = require("../../models/Users");
 
-exports.getAllBlogs = async () => {
+exports.getAllUsers = async () => {
   return await UserModel.find();
 };
 
