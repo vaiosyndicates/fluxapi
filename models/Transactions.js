@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require('moment');
 const Schema = mongoose.Schema;
  
 const transactionSchema = new Schema({
@@ -14,15 +15,10 @@ const transactionSchema = new Schema({
   isDeleted: {
     type: Boolean,
     default: false
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now
   }
+},
+{
+  timestamps: true
 });
  
 module.exports = mongoose.model("Transaction", transactionSchema);

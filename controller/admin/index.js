@@ -2,6 +2,7 @@ const adminService = require("../../service/transaction")
 const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken')
 const { ObjectId } = require('mongodb');
+const { parseISO }  = require('../../utill')
 
 const AdminController = {
   getTrx: async (req, res) => {
@@ -25,6 +26,30 @@ const AdminController = {
           responseCode: 200, 
           message: "Success",
           data: trx, 
+        });
+      } else {
+        res.json({
+          responseCode: 404, 
+          message: "Data not found",
+        });
+      }
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+  getTrxbyRange: async (req, res) => {
+    let start = parseISO(req.params.start)
+    let end = parseISO(req.params.end)
+   
+    try {
+      const trx = await adminService.getTrxbyRange(start, end);
+      // console.log(trx)
+      if(trx) {
+        res.json({
+          responseCode: 200, 
+          message: "Success",
+          data: trx,
         });
       } else {
         res.json({
