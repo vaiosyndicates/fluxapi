@@ -8,7 +8,7 @@ const AdminController = {
   getTrx: async (req, res) => {
     try {
       const trx = await adminService.getAllTrx();
-      res.json({ data: trx, status: "success" });
+      res.status(200).json({ data: trx, status: "success" });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -22,13 +22,13 @@ const AdminController = {
     try {
       const trx = await adminService.getTrxbyStatus(payload);
       if(trx) {
-        res.json({
+        res.status(200).json({
           responseCode: 200, 
           message: "Success",
           data: trx, 
         });
       } else {
-        res.json({
+        res.status(404).json({
           responseCode: 404, 
           message: "Data not found",
         });
@@ -47,13 +47,13 @@ const AdminController = {
       const trx = await adminService.getTrxbyRange(start, end);
       // console.log(trx)
       if(trx) {
-        res.json({
+        res.status(200).json({
           responseCode: 200, 
           message: "Success",
           data: trx,
         });
       } else {
-        res.json({
+        res.status(404).json({
           responseCode: 404, 
           message: "Data not found",
         });
@@ -75,7 +75,7 @@ const AdminController = {
       }
 
       const trx = await adminService.createTrx(payload)
-      res.json({ 
+      res.status(200).json({ 
         responseCode: 200, 
         status: "success create from admin",
         data: trx
@@ -98,13 +98,13 @@ const AdminController = {
         }
   
         const updateStatus = adminService.updateTrx(id, payload )
-        res.json({ 
+        res.status(200).json({ 
           responseCode: 200, 
           status: "success",
           data: updateStatus
         });
       } else {
-        res.json({ 
+        res.status(404).json({ 
           responseCode: 404, 
           status: "failed",
           message: 'Trx ID not found'
@@ -123,8 +123,8 @@ const AdminController = {
       if(searchTrx) {
         const status = searchTrx.status
         if(status === 'done') {
-          res.json({ 
-            responseCode: 199, 
+          res.status(202).json({ 
+            responseCode: 202, 
             messages: "Can't delete data which already done",
           });
         } else {
@@ -134,14 +134,14 @@ const AdminController = {
           }
     
           const updateStatus = adminService.updateTrx(id, payload )
-          res.json({ 
+          res.status(200).json({ 
             responseCode: 200, 
             messages: "success delete from admin",
           });
         }
        
       } else {
-        res.json({ 
+        res.status(404).json({ 
           responseCode: 404, 
           status: "failed",
           message: 'Trx ID not found'

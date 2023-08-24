@@ -23,14 +23,15 @@ const AuthController = {
   },
   createUser: async (req, res) => {
     try {
-      const user = await authService.getUserbyName({name: req.body.name})
+      const { name, password, role } = req.body
+      const user = await authService.getUserbyName({name: name})
       if(user) {
-        res.json({responseCode: 409, status: 'User already exist'})
+        res.status(409).json({responseCode: 409, status: 'User already exist'})
       } else {
         const payload = {
-          name: req.body.name,
-          role: req.body.role == 0 ? 'user' : req.body.role === 1 ? 'approver' : 'admin',
-          password: await bcrypt.hash(req.body.password, 10)
+          name: name,
+          role: role === '0' ? 'user' : role === '1' ? 'approver' : 'admin',
+          password: await bcrypt.hash(password, 10)
         }
         const newUser = await authService.createUsers(payload)
         res.json({

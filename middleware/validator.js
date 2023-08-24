@@ -32,7 +32,11 @@ const validate = {
     ( req, res, next ) => {
       const errors = validationResult(req);
       if (!errors.isEmpty())
-        return res.status(422).json({errors: errors.array()});
+        return res.status(422).json({
+                  responseCode: 422,
+                  message: errors.msg,
+                  errors: errors.array()
+               });
       next();
    }
   ],
