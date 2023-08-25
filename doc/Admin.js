@@ -170,6 +170,91 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
+/admin/transaction/startDate/{start}/endDate/{end}/status/{status}:
+ *   get:
+ *     security:
+ *      -  security:
+ *          - BearerAuth
+ *     summary: Get list of transactions by date range and status. Will return data which created between {start} and {end} date with specific status
+ *     parameters:
+ *       - in: path
+ *         name: start
+ *         required: true
+ *         description: Start date transaction ( Format YYYY-MM-DD)
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: end
+ *         required: true
+ *         description: End date transaction ( Format YYYY-MM-DD)
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: status
+ *         required: true
+ *         description: Status transaction
+ *         schema:
+ *           type: string
+ *     tags: [Admin]
+ *     responses:
+ *       200:
+ *         description: A list of transactions.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 responseCode:
+ *                  type: integer
+ *                  example: 200
+ *                 message:
+ *                  type: string
+ *                  example: success
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                         description: The user ID.
+ *                         example: 64e5f7847e55cbbd62b91a40
+ *                       transactionName:
+ *                         type: string
+ *                         description: The transaction name.
+ *                         example: John doe
+ *                       transactionDetail:
+ *                         type: string
+ *                         description: Detail of transaction.
+ *                         example: approver
+ *                       sender:
+ *                         type: string
+ *                         description: ID of sender.
+ *                         example: 64e5f7977e55cbbd62b91a43
+ *                       recipient:
+ *                         type: string
+ *                         description: Name of recipient.
+ *                         example: Jane doe
+ *                       amount:
+ *                         type: integer
+ *                         description: Transaction amount.
+ *                         example: 10000000
+ *                       status:
+ *                         type: string
+ *                         description: The transaction status.
+ *                         example: pending
+ *                       isDeleted:
+ *                         type: boolean
+ *                         description: Transaction visibility status.
+ *                         example: false
+ *                       createdAt:
+ *                         type: string
+ *                         format: date
+ *                         example: 2023-08-23T12:11:48.491Z
+ *                       updatedAt:
+ *                         type: string
+ *                         format: date
+ *                         example: 2023-08-23T12:11:48.491Z
  * 
  * /admin/transaction:
  *   get:

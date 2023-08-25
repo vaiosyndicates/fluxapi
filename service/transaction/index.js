@@ -25,6 +25,19 @@ exports.getTrxbyRange = async (start, end) => {
   }).exec();
 };
 
+exports.getTrxbyRangeStatus = async (start, end, status) => {
+  return await TransactionModel.find({
+    $and:[
+      {
+        createdAt: {
+        $gte: new Date(start),
+        $lte: new Date(end)
+      }},
+      {status: status}
+    ]    
+  }).exec();
+};
+
 exports.updateTrx = async (id, trx) => {
   return await TransactionModel.findByIdAndUpdate(id, trx);
 };

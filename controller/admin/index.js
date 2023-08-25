@@ -63,6 +63,32 @@ const AdminController = {
       res.status(500).json({ error: error.message });
     }
   },
+  getTrxbyRangeStatus: async (req, res) => {
+    let start = parseISO(req.params.start)
+    let end = parseISO(req.params.end)
+    let status = req.params.status
+    
+    // console.log(start)
+    try {
+      const trx = await adminService.getTrxbyRangeStatus(start, end, status);
+      // console.log(trx)
+      if(trx) {
+        res.status(200).json({
+          responseCode: 200, 
+          message: "Success",
+          data: trx,
+        });
+      } else {
+        res.status(404).json({
+          responseCode: 404, 
+          message: "Data not found",
+        });
+      }
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
   createTrx: async (req, res) => {
     try {
       const { trxName, trxDetail, sender, recipient, amount } = req.body
