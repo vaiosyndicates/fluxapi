@@ -57,7 +57,9 @@ const AuthController = {
           res.json({
             responseCode: 200,
             message: 'Login success',
-            data: token,
+            data: {
+              token: token
+            },
           })
         } else {
           res.json({

@@ -26,7 +26,7 @@ afterAll( async () => {
 describe("GET /api/auth",  () => {
   it("[POSITIVE] should return all users", async () => {
     const res = await request(app).get("/api/auth");
-    expect(res.statusCode).toBe(200);
+    expect(res._body.responseCode).toBe(200);
   });
 });
 
@@ -37,7 +37,7 @@ describe("POST /api/auth/register", () => {
       role: '1',
       password: "gadgadasvara1506",
     });
-    expect(res.statusCode).toBe(200);
+    expect(res._body.responseCode).toBe(200);
   });
 });
 
@@ -47,17 +47,18 @@ describe("POST /api/auth/login", () => {
       name: "tes jest",
       password: "gadgadasvara1506",
     });
-    expect(res.statusCode).toBe(200);
+    expect(res._body.responseCode).toBe(200);
+    expect(res._body.data).hasOwnProperty("token");
   });
 });
 
-describe('PUT: update status trx id with REJECT status', function() {
+describe('PUT: update status trx id with specific status', function() {
   test('[POSITIF It should update trx status and return response 200.', function() {
       return request(app)
           .put('/api/approval/transaction/64e77d33bd991a02ce7dbe45')
           .set('Authorization', 'Bearer '+ tokenApprover)
           .send({
-            status: 'reject'
+            status: 'done'
           })
           .expect(200);
   });
@@ -75,6 +76,6 @@ describe("POST /api/transaction", () => {
       recipient: "tes jest",
       amount: 20000,
     });
-    expect(res.statusCode).toBe(200);
+    expect(res._body.responseCode).toBe(200);
   });
 });
