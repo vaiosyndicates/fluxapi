@@ -77,8 +77,7 @@ const AdminController = {
       const trx = await adminService.createTrx(payload)
       res.status(200).json({ 
         responseCode: 200, 
-        status: "success create from admin",
-        data: trx
+        status: "success create from admin"
       });
 
     } catch (error) {
@@ -100,8 +99,7 @@ const AdminController = {
         const updateStatus = adminService.updateTrx(id, payload )
         res.status(200).json({ 
           responseCode: 200, 
-          status: "success",
-          data: updateStatus
+          status: "success update data"
         });
       } else {
         res.status(404).json({ 
@@ -122,10 +120,10 @@ const AdminController = {
       let searchTrx = await adminService.getTrxbyId({ "_id": new ObjectId(id) })
       if(searchTrx) {
         const status = searchTrx.status
-        if(status === 'done') {
+        if(status === 'done' || status === 'reject') {
           res.status(202).json({ 
             responseCode: 202, 
-            messages: "Can't delete data which already done",
+            messages: "Can't delete data which already done or reject",
           });
         } else {
           const payload = {
