@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "6b212bbd-43d6-412e-a19d-36700fcff245",
+		"name": "Revou Week 10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6901744"
+	},
+	"item": [
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "get transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create trx",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoic2FtdWVsIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTI4OTIyODd9.GYTdNAxpi6eHcvfTx6J38YcSTlnL3fqENgS_iIbtlpE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trxName",
+									"value": "transfer baru",
+									"type": "text"
+								},
+								{
+									"key": "trxDetail",
+									"value": "transfer baru",
+									"type": "text"
+								},
+								{
+									"key": "sender",
+									"value": "64e77bc7bd991a02ce7dbe38",
+									"type": "text"
+								},
+								{
+									"key": "recipient",
+									"value": "isis",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "200000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "approval",
+			"item": [
+				{
+					"name": "get transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/approval/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"approval",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create trx",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBkb2UiLCJyb2xlIjoiYXBwcm92ZXIiLCJpYXQiOjE2OTI4ODg5Nzh9.ZVD7TZXAqtJqYdfBeDca0iEnSzxlXQOYB7Y3u_6vwRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trxName",
+									"value": "transfer ke bo",
+									"type": "text"
+								},
+								{
+									"key": "trxDetail",
+									"value": "transfer uang",
+									"type": "text"
+								},
+								{
+									"key": "sender",
+									"value": "64e5f7977e55cbbd62b91a43",
+									"type": "text"
+								},
+								{
+									"key": "recipient",
+									"value": "julia",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1000000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/approval/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"approval",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status trx",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBkb2UiLCJyb2xlIjoiYXBwcm92ZXIiLCJpYXQiOjE2OTI3OTUxMzJ9.fvy9bMxTuLJnmDs2FLuDihFsOHs8OHMHvFejxo6WVzY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "done",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/approval/transaction/64e77d33bd991a02ce7dbe45",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"approval",
+								"transaction",
+								"64e77d33bd991a02ce7dbe45"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "get transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/admin/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get trx by status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzIGFkbWluIDIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTI4MTIyOTd9.lEpQe4OJFuOfdq9euNXR7nw1kERNgvFVar-4NOJ0SbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/admin/transaction/status/pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"transaction",
+								"status",
+								"pending"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get trx by date range",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzIGFkbWluIDIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTI4MTIyOTd9.lEpQe4OJFuOfdq9euNXR7nw1kERNgvFVar-4NOJ0SbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/admin/transaction/startDate/2023-08-01/endDate/2023-08-30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"transaction",
+								"startDate",
+								"2023-08-01",
+								"endDate",
+								"2023-08-30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get trx by date range status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzIGFkbWluIDIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTI4MTIyOTd9.lEpQe4OJFuOfdq9euNXR7nw1kERNgvFVar-4NOJ0SbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/admin/transaction/startDate/2023-08-01/endDate/2023-08-30/status/pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"transaction",
+								"startDate",
+								"2023-08-01",
+								"endDate",
+								"2023-08-30",
+								"status",
+								"pending"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create trx",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzIGFkbWluIDIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTI4MDI3MDZ9.D-O0NPHt0mOyrhOw9mWEnrl0kBlPLa4rwTS6IuUm0I0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trxName",
+									"value": "transfer from admin eee",
+									"type": "text"
+								},
+								{
+									"key": "trxDetail",
+									"value": "transfer uang from admin",
+									"type": "text"
+								},
+								{
+									"key": "sender",
+									"value": "64e61dbb8629ba85f1958d46",
+									"type": "text"
+								},
+								{
+									"key": "recipient",
+									"value": "admin jalin",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "10000000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status trx",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzIGFkbWluIDIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTI4MDI3MDZ9.D-O0NPHt0mOyrhOw9mWEnrl0kBlPLa4rwTS6IuUm0I0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "done",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/transaction/64e607d77943a23c5d8547c3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"transaction",
+								"64e607d77943a23c5d8547c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft delete trx",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzIGFkbWluIDIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTI4MDI3MDZ9.D-O0NPHt0mOyrhOw9mWEnrl0kBlPLa4rwTS6IuUm0I0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/transaction/64e6c94bd175f2e7ab6a77c9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"transaction",
+								"64e6c94bd175f2e7ab6a77c9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "samara",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "gadgadasvara1506",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "samara",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "gadgadasvara1506",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
