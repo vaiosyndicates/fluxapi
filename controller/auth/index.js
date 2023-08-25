@@ -37,7 +37,6 @@ const AuthController = {
         res.json({
           responseCode: 200, 
           status: 'Success',
-          data: newUser
         })
       }
     } catch (error) {

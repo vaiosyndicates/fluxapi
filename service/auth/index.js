@@ -1,7 +1,7 @@
 const UserModel = require("../../models/Users");
 
 exports.getAllUsers = async () => {
-  return await UserModel.find();
+  return await UserModel.find().select('_id name role createdAt').exec();
 };
 
 exports.createUsers = async (user) => {
