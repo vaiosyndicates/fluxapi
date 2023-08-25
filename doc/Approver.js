@@ -17,7 +17,7 @@
  * tags:
  *   name: Approver
  *   description: Approver managing API
- * /approver/transaction:
+ * /approval/transaction:
  *   get:
  *     security:
  *      -  security:
@@ -107,7 +107,7 @@
  *                 status:
  *                  type: string
  *                  example: success
-* /approver/transaction/{id}:
+* /approval/transaction/{id}:
  *   put:
  *     security:
  *      -  security:
