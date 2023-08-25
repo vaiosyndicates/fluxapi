@@ -31,7 +31,7 @@ API Documentation using
 
 You can simply fork or clone this repo by using
 ```terminal
-  git clone https://github.com/RevoU-FSSE-2/week-10-vaiosyndicates.git
+  git clone https://github.com/vaiosyndicates/week-10-vaiosyndicates.git
 ```
 
 after that you can run for installing dependecies
