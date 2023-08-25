@@ -8,6 +8,7 @@
  *     BearerAuth:
  *       type: http
  *       scheme: bearer  
+ *       bearerFormat: JWT 
  */
 
 
@@ -22,7 +23,7 @@
  *     tags: [Transfer]
  *     responses:
  *       200:
- *         description: A list of users.
+ *         description: A list of transactions.
  *         content:
  *           application/json:
  *             schema:

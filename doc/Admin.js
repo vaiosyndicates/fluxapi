@@ -7,7 +7,8 @@
  *       scheme: basic
  *     BearerAuth:
  *       type: http
- *       scheme: bearer  
+ *       scheme: bearer
+ *       bearerFormat: JWT 
  */
 
 
@@ -17,7 +18,7 @@
  *   name: Admin
  *   description: Admin managing API
  * 
- * /admin/transaction/{status}:
+ * /admin/transaction/status/{status}:
  *   get:
  *     security:
  *      -  security:
@@ -31,18 +32,6 @@
  *         schema:
  *           type: string
  *     tags: [Admin]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               status:
- *                 type: string
- *                 description: Valid status are done, reject and pending
- *                 example: done
-
  *     responses:
 *       200:
  *         description: A list of users.
@@ -228,7 +217,7 @@
  *     security:
  *      -  security:
  *          - BearerAuth
- *     summary: Create transfer transaction for role approver
+ *     summary: Create transfer transaction for role admin
  *     tags: [Admin]
  *     requestBody:
  *       required: true
