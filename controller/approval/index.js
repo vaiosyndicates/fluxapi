@@ -7,7 +7,11 @@ const ApprovalController = {
   getTrx: async (req, res) => {
     try {
       const trx = await approvalService.getAllTrx();
-      res.json({ data: trx, status: "success" });
+      res.status(200).json({
+         responseCode: 200,
+         status: "success",
+         data: trx 
+      });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -24,10 +28,9 @@ const ApprovalController = {
       }
 
       const trx = await approvalService.createTrx(payload)
-      res.json({ 
+      res.status(200).json({ 
         responseCode: 200, 
         status: "success",
-        data: trx
       });
 
     } catch (error) {
@@ -47,10 +50,9 @@ const ApprovalController = {
         }
   
         const updateStatus = approvalService.updateTrx(id, payload )
-        res.json({ 
+        res.status(200).json({ 
           responseCode: 200, 
-          status: "success",
-          data: updateStatus
+          status: "success update data",
         });
       } else {
         res.json({ 
