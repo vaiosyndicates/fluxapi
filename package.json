@@ -2,9 +2,10 @@
   "name": "week10",
   "version": "1.0.0",
   "description": "week10",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node app.js"
   },
   "author": "Ade Kresna D",
   "license": "ISC",
@@ -17,6 +18,11 @@
     "jsonwebtoken": "^9.0.1",
     "moment": "^2.29.4",
     "mongodb": "^5.8.0",
-    "mongoose": "^7.4.4"
+    "mongoose": "^7.4.4",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   }
 }
