@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 app.use(express.json())
 
 app.use("/api/auth", authRouter);
-app.use("/api/transaction", trxRouter);
+app.use("/api/user/transaction", trxRouter);
 app.use("/api/approval/transaction", approvalRouter);
 app.use("/api/admin/transaction", adminRouter);
 
@@ -58,6 +58,14 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(specs)
 );
+
+app.use((req, res, next) => {
+  res.status(404).json({
+      responseCode: 404,
+      message: 'Page not found'
+  })
+})
+
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
