@@ -23,14 +23,15 @@ const AuthController = {
   },
   createUser: async (req, res) => {
     try {
-      const { name, password, role } = req.body
+      const { name, email, password, role } = req.body
       const user = await authService.getUserbyName({name: name})
       if(user) {
         res.status(409).json({responseCode: 409, status: 'User already exist'})
       } else {
         const payload = {
           name: name,
-          role: role === '0' ? 'user' : role === '1' ? 'approver' : 'admin',
+          email: email,
+          role: role,
           password: await bcrypt.hash(password, 10)
         }
         const newUser = await authService.createUsers(payload)
@@ -47,24 +48,65 @@ const AuthController = {
       })
     }
   },
-  loginUser: async (req, res) => {
+  resetPassword: async (req, res) => {
     try {
-      const user = await authService.getUserbyName({name: req.body.name})
-      if(user) {
-        const checkpw = await bcrypt.compare(req.body.password, user.password)
-        if(checkpw) {
-          const token = jwt.sign({name: user.name, role: user.role}, process.env.SECRET_JWT)
-          res.json({
-            responseCode: 200,
-            message: 'Login success',
-            data: {
-              token: token
-            },
+      const { oldPassword, newPassword, confirmationPassword, email } = req.body
+      const users = await authService.getUserbyEmail(email)
+      if(users) {
+        if(users.isApprove === true) {
+          const newPW = await bcrypt.hash(confirmationPassword, 10)
+          const updatePW = authService.changePassword(users.id, newPW)
+
+          res.status(200).json({
+            responseCode: 200, 
+            message: 'Success reset password',
           })
         } else {
-          res.json({
+          res.status(404).json({
             responseCode: 404, 
-            status: 'Password not match',
+            message: 'User not active',
+          })
+        }
+      } else {
+        res.json({
+          responseCode: 404, 
+          message: 'User not found',
+        })
+      }
+    } catch (error) {
+      res.json({
+        responseCode: 505, 
+        message: 'Network Error',
+        data: error.message
+      })
+    }
+  },
+  loginUser: async (req, res) => {
+    try {
+      const user = await authService.getUserbyEmail(req.body.email)
+      if(user) {
+        const active = user.isApprove;
+        if(active === true) {
+          const checkpw = await bcrypt.compare(req.body.password, user.password)
+          if(checkpw) {
+            const token = jwt.sign({id: user._id ,name: user.name, role: user.role, isApprove: user.isApprove}, process.env.SECRET_JWT)
+            res.json({
+              responseCode: 200,
+              message: 'Login success',
+              data: {
+                token: token
+              },
+            })
+          } else {
+            res.status(404).json({
+              responseCode: 404, 
+              status: 'Password not match',
+            })
+          }
+        } else {
+          res.status(404).json({
+            responseCode: 404, 
+            status: 'User not active',
           })
         }
       } else {

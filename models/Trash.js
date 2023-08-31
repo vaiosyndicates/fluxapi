@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
  
-const userSchema = new Schema({
-  name: String,
-  email: String,
-  role: String,
-  password: String,
+const trashSchema = new Schema({
+  idUser: String,
+  idArticle: String,
+  title: String,
+  excerpt: String,
   isDeleted: {
     type: Boolean,
     default: false
@@ -19,4 +19,4 @@ const userSchema = new Schema({
   timestamps: true
 });
  
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Trash", trashSchema);

@@ -3,6 +3,8 @@ const authRouter = require('./routes/AuthRoutes')
 const trxRouter = require('./routes/TransferRoutes')
 const approvalRouter = require('./routes/ApprovalRoutes')
 const adminRouter = require('./routes/AdminRoutes')
+const postRouter = require('./routes/PostRoutes')
+const publicRouter = require('./routes/PublicRoutes')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const connect = require('./db')
@@ -21,9 +23,10 @@ app.use(bodyParser.json())
 app.use(express.json())
 
 app.use("/api/auth", authRouter);
-app.use("/api/user/transaction", trxRouter);
-app.use("/api/approval/transaction", approvalRouter);
-app.use("/api/admin/transaction", adminRouter);
+app.use("/api", publicRouter);
+app.use("/api/user", postRouter);
+app.use("/api/approval", approvalRouter);
+app.use("/api/admin", adminRouter);
 
 const options = {
   definition: {

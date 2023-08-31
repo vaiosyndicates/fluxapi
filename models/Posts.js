@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
  
-const userSchema = new Schema({
-  name: String,
-  email: String,
-  role: String,
-  password: String,
+const postSchema = new Schema({
+  idUser: String,
+  title: String,
+  excerpt: String,
+  body: String,
+  tag: [String],
   isDeleted: {
     type: Boolean,
     default: false
@@ -19,4 +20,4 @@ const userSchema = new Schema({
   timestamps: true
 });
  
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Post", postSchema);

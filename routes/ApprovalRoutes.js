@@ -4,8 +4,10 @@ const validate = require('../middleware/validator')
 
 const router = express.Router();
 
-router.get('/',approvalTrx.getTrx)
-router.post('/', validate.authenticateTrx ,approvalTrx.createTrx)
-router.put('/:id', validate.authenticateTrx, approvalTrx.updateStatusTrx)
+router.get('/users', validate.authenticateTrx, approvalTrx.getUsers)
+router.get('/users/:id/articles', validate.authenticateTrx, approvalTrx.getPostbyID)
+router.get('/users/:id/articles/tag', validate.authenticateTrx, approvalTrx.getPostbyTag)
+router.get('/users/:iduser/articles/:idarticle', validate.authenticateTrx, approvalTrx.getDetailPost)
+router.put('/users/:iduser/articles/:idarticle', validate.authenticateTrx, approvalTrx.updateStatusPost)
 
 module.exports = router;

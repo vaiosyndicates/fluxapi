@@ -1,12 +1,14 @@
 const approvalService = require("../../service/transaction")
+const aprvService = require("../../service/auth")
+const postService = require("../../service/post")
 const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken')
 const { ObjectId } = require('mongodb');
 
 const ApprovalController = {
-  getTrx: async (req, res) => {
+  getUsers: async (req, res) => {
     try {
-      const trx = await approvalService.getAllTrx();
+      const trx = await aprvService.getAllUsers();
       res.status(200).json({
          responseCode: 200,
          status: "success",
@@ -16,49 +18,77 @@ const ApprovalController = {
       res.status(500).json({ error: error.message });
     }
   },
-  createTrx: async (req, res) => {
+  getPostbyID: async (req, res) => {
+    const { id } = req.params
     try {
-      const { trxName, trxDetail, sender, recipient, amount } = req.body
-      const payload = {
-        transactionName: trxName ,
-        transactionDetail: trxDetail,
-        sender: sender,
-        recipient: recipient,
-        amount: parseInt(amount)
-      }
-
-      const trx = await approvalService.createTrx(payload)
-      res.status(200).json({ 
-        responseCode: 200, 
-        status: "success",
+      const trx = await postService.getAllPostByID(id);
+      res.status(200).json({
+         responseCode: 200,
+         status: "success",
+         data: trx 
       });
-
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   },
-  updateStatusTrx: async (req, res) => {
-    try {
-      const { id } = req.params
-      const { status } = req.body
+  getPostbyTag: async (req, res) => {
+    const { id } = req.params
+    const { tag } = req.body
+    let params = []
 
-      let searchTrx = await approvalService.getTrxbyId({ "_id": new ObjectId(id) })
+    try {
+      let splitTag = tag.split(",").map(function(item) {
+        let clean = item.trim();
+        return params.push(clean)
+      });
+
+      const trx = await postService.getPostbyTag(id, params);
+      res.status(200).json({
+         responseCode: 200,
+         status: "success",
+         data: trx 
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },  
+  getDetailPost: async (req, res) => {
+    const { idarticle, iduser } = req.params
+    console.log(`article ${idarticle} user ${iduser}`)
+    try {
+      const trx = await postService.getDetailPost(idarticle, iduser);
+      res.status(200).json({
+         responseCode: 200,
+         status: "success",
+         data: trx 
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+  updateStatusPost: async (req, res) => {
+    try {
+      const { idarticle, iduser } = req.params
+
+      let searchTrx = await postService.getDetailPost(idarticle , iduser)
       if(searchTrx) {
+        let status = searchTrx.isApprove
         const payload = {
-          status: status,
+          isApprove: !status,
           updatedAt: new Date()
         }
   
-        const updateStatus = approvalService.updateTrx(id, payload )
+        const updateStatus = postService.updateStatusPost(idarticle, payload )
         res.status(200).json({ 
           responseCode: 200, 
           status: "success update data",
         });
+
       } else {
-        res.json({ 
+        res.status(404).json({ 
           responseCode: 404, 
           status: "failed",
-          message: 'Trx ID not found'
+          message: 'Article not found'
         });
       }
     } catch (error) {

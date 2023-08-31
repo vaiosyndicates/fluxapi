@@ -4,12 +4,8 @@ const validate = require('../middleware/validator')
 
 const router = express.Router();
 
-router.get('/',adminTrx.getTrx)
-router.get('/status/:status',validate.authenticateAdmin, adminTrx.getTrxbyStatus)
-router.get('/startDate/:start/endDate/:end',validate.authenticateAdmin, adminTrx.getTrxbyRange)
-router.get('/startDate/:start/endDate/:end/status/:status',validate.authenticateAdmin, adminTrx.getTrxbyRangeStatus)
-router.post('/', validate.authenticateAdmin ,adminTrx.createTrx)
-router.put('/:id', validate.authenticateAdmin, adminTrx.updateStatusTrx)
-router.delete('/:id', validate.authenticateAdmin, adminTrx.deleteTrx)
+router.get('/users', validate.authenticateAdmin, adminTrx.getAllUsers)
+router.patch('/users/:id', validate.authenticateAdmin, adminTrx.updateStatusUser)
+router.delete('/users/:id', validate.authenticateAdmin, adminTrx.deleteUsers)
 
 module.exports = router;
