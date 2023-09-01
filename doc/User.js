@@ -12,8 +12,8 @@
  * @swagger
  * tags:
  *   name: User
- *   description: User managing API
- * /{iduser}/articles/all:
+ *   description: Article managing API
+ * /user/{iduser}/articles/all:
  *   get:
  *     security:
  *      -  security:
@@ -85,7 +85,7 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
- * /{iduser}/articles/{idarticle}:
+ * /user/{iduser}/articles/{idarticle}:
  *   get:
  *     security:
  *      -  security:
@@ -254,7 +254,7 @@
  *                 message:
  *                  type: string
  *                  example: success  
- * /{iduser}/tag/articles:
+ * /user/{iduser}/tag/articles:
  *   get:
  *     security:
  *      -  security:
@@ -337,7 +337,7 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
- * /{iduser}/articles:
+ * /user/{iduser}/articles:
  *   post:
  *     security:
  *      -  security:
@@ -384,7 +384,7 @@
  *                 status:
  *                  type: string
  *                  example: success
-* /{iduser}/trash/all:
+* /user/{iduser}/trash/all:
  *   get:
  *     security:
  *      -  security:
@@ -453,7 +453,7 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
- * /{iduser}/trash/{idtrash}/restore:
+ * /user/{iduser}/trash/{idtrash}/restore:
  *   put:
  *     security:
  *      -  security:

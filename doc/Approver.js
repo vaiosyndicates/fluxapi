@@ -12,8 +12,8 @@
  * @swagger
  * tags:
  *   name: Approver
- *   description: User managing API
- * /users:
+ *   description: Article managing API ( Approver )
+ * /approver/users:
  *   get:
  *     security:
  *      -  security:
@@ -59,7 +59,7 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
- * /users/{iduser}/articles:
+ * /approver/users/{iduser}/articles:
  *   get:
  *     security:
  *      -  security:
@@ -131,7 +131,7 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z 
- * /users/{iduser}/articles/tag:
+ * /approver/users/{iduser}/articles/tag:
  *   get:
  *     security:
  *      -  security:
@@ -214,7 +214,7 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
- * /users/{iduser}/articles/{idarticle}:
+ * /approver/users/{iduser}/articles/{idarticle}:
  *   get:
  *     security:
  *      -  security:
