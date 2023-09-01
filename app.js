@@ -47,7 +47,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3001/api",
+        url: "https://fluxapi-production.up.railway.app/api",
       },
     ],
   },
