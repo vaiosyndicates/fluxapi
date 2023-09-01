@@ -1,0 +1,1093 @@
+{
+	"info": {
+		"_postman_id": "983a427d-5cd2-4576-891b-e7e9fd53030a",
+		"name": "Revou Week 11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6901744"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "trash",
+					"item": [
+						{
+							"name": "restore post from trash by trash id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/user/64edf30020328cd4d456ab58/trash/64f077d7c294903487dac464/restore",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"64edf30020328cd4d456ab58",
+										"trash",
+										"64f077d7c294903487dac464",
+										"restore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all post from trash",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/user/64edf30020328cd4d456ab58/trash/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"64edf30020328cd4d456ab58",
+										"trash",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "post",
+					"item": [
+						{
+							"name": "get article by id user",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/user/64edf30020328cd4d456ab58/articles/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"64edf30020328cd4d456ab58",
+										"articles",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get detail article by id user and tag",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "tag",
+											"value": "stories",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/user/64edf30020328cd4d456ab58/tag/articles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"64edf30020328cd4d456ab58",
+										"tag",
+										"articles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get detail article by id article and id user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/user/64edf30020328cd4d456ab58/articles/64ef728c0a5ab6b951fcdf2d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"64edf30020328cd4d456ab58",
+										"articles",
+										"64ef728c0a5ab6b951fcdf2d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "soft delete article by id article",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/user/64edf30020328cd4d456ab58/articles/64ef728c0a5ab6b951fcdf2d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"64edf30020328cd4d456ab58",
+										"articles",
+										"64ef728c0a5ab6b951fcdf2d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create post",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var moment = require('moment');\r",
+											"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWRmMzAwMjAzMjhjZDRkNDU2YWI1OCIsIm5hbWUiOiJ0ZXN1c2VyIiwicm9sZSI6Im1ha2VyIiwiaXNBcHByb3ZlIjp0cnVlLCJpYXQiOjE2OTMzOTM2MTd9.gTY1KTXZtKHdtYb7fBfHQZuk4soQUYQFqj2DBmXflAg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "idUser",
+											"value": "64edf30020328cd4d456ab58",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Pendakian Lawu via Cemoro Kandang",
+											"type": "text"
+										},
+										{
+											"key": "excerpt",
+											"value": "Lorem ipsum dolro sit amet",
+											"type": "text"
+										},
+										{
+											"key": "body",
+											"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+											"type": "text"
+										},
+										{
+											"key": "tag",
+											"value": "camp,  mountain, survival",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/user/articles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"articles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update post",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var moment = require('moment');\r",
+											"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWRmMzAwMjAzMjhjZDRkNDU2YWI1OCIsIm5hbWUiOiJ0ZXN1c2VyIiwicm9sZSI6Im1ha2VyIiwiaXNBcHByb3ZlIjp0cnVlLCJpYXQiOjE2OTMzOTM2MTd9.gTY1KTXZtKHdtYb7fBfHQZuk4soQUYQFqj2DBmXflAg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "Pendakian gunung Slamet",
+											"type": "text"
+										},
+										{
+											"key": "excerpt",
+											"value": "Teknik mendaki di gunung merbabu",
+											"type": "text"
+										},
+										{
+											"key": "body",
+											"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+											"type": "text"
+										},
+										{
+											"key": "tag",
+											"value": "stories, camp, mountain",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/user/64edf30020328cd4d456ab58/articles/64ef75637b0ae8ff575b1f1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"64edf30020328cd4d456ab58",
+										"articles",
+										"64ef75637b0ae8ff575b1f1d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "approval",
+			"item": [
+				{
+					"name": "get user role maker",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWUwYjMwYzM2NzE3NGU2YWQ5ZmFmOSIsIm5hbWUiOiJhcHByb3ZlciIsInJvbGUiOiJhcHByb3ZlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzNDEwNDMwfQ.zpcl_FWrQ-FpO3ltjUV-Mf9sZuHGSAedbtkld49ubWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/approval/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"approval",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all post by id user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWUwYjMwYzM2NzE3NGU2YWQ5ZmFmOSIsIm5hbWUiOiJhcHByb3ZlciIsInJvbGUiOiJhcHByb3ZlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzNDEwNDMwfQ.zpcl_FWrQ-FpO3ltjUV-Mf9sZuHGSAedbtkld49ubWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/approval/users/64edf30020328cd4d456ab58/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"approval",
+								"users",
+								"64edf30020328cd4d456ab58",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id and tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWUwYjMwYzM2NzE3NGU2YWQ5ZmFmOSIsIm5hbWUiOiJhcHByb3ZlciIsInJvbGUiOiJhcHByb3ZlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzNDEwNDMwfQ.zpcl_FWrQ-FpO3ltjUV-Mf9sZuHGSAedbtkld49ubWI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tag",
+									"value": "camp",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/approval/users/64edf30020328cd4d456ab58/articles/tag",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"approval",
+								"users",
+								"64edf30020328cd4d456ab58",
+								"articles",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status post",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBkb2UiLCJyb2xlIjoiYXBwcm92ZXIiLCJpYXQiOjE2OTI3OTUxMzJ9.fvy9bMxTuLJnmDs2FLuDihFsOHs8OHMHvFejxo6WVzY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/approval/users/64edf30020328cd4d456ab58/articles/64ef75637b0ae8ff575b1f1d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"approval",
+								"users",
+								"64edf30020328cd4d456ab58",
+								"articles",
+								"64ef75637b0ae8ff575b1f1d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "get all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWUwMzlmYWJjZGE1YTUzZmE0OWViMCIsIm5hbWUiOiJyb290Iiwicm9sZSI6ImFkbWluIiwiaXNBcHByb3ZlIjp0cnVlLCJpYXQiOjE2OTM0ODUxNDh9.GAak45oN1WHB9neLs244851NpOcVm1vA7HQYP5kYZ1s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/admin/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsInJvbGUiOiJhZG1pbiIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzIxNTU5fQ.GAgAL1MNMuGuNvE2uhn-W1gp42Q5buv6BtmajdqRLEo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/users/64f0af7fc96a8b37ad0a0da4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"64f0af7fc96a8b37ad0a0da4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "permanent delete user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTMwMzY3MDR9.TNY7CKHbIIKZEnqxp850zu60xi76bb2GmbwYsexLmm0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/users/64f0af7fc96a8b37ad0a0da4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"64f0af7fc96a8b37ad0a0da4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hardcode admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWUwMzlmYWJjZGE1YTUzZmE0OWViMCIsIm5hbWUiOiJyb290Iiwicm9sZSI6ImFkbWluIiwiaXNBcHByb3ZlIjp0cnVlLCJpYXQiOjE2OTM1NjQyNDF9.GYM5NwCwd5TbasQ0FB5OQE2RcsDW9tz6gaPKNXyHsHc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "admin hardcode",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "roots@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "adminadmin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/__/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"__",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "tesmaker",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tesmaker@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "maker",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "adminadmin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "tesmaker@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "adminadmin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');\r",
+									"pm.environment.set('reffNum', moment().format((\"YYYYMMDDHHmmssSSSSSS\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "oldPassword",
+									"value": "tesbaru123",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "tesbaru1234",
+									"type": "text"
+								},
+								{
+									"key": "confirmationPassword",
+									"value": "tesbaru1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "article",
+					"item": [
+						{
+							"name": "get public article which already approved and not deleted",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/articles/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"articles",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get public article which already approved and not deleted Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/articles/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"articles",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all article by tag",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdXNlciIsInJvbGUiOiJtYWtlciIsImlzQXBwcm92ZSI6dHJ1ZSwiaWF0IjoxNjkzMzkxOTM3fQ.-t0DB8ZbX7wQd4YswV03wXXzrU0hUFQcw9NHwUP1h98",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "tag",
+											"value": "camp ",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/articles/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"articles",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get article by date range",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzIGFkbWluIDIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTI4MTIyOTd9.lEpQe4OJFuOfdq9euNXR7nw1kERNgvFVar-4NOJ0SbM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/articles/startDate/2023-08-01/endDate/2023-08-31",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"articles",
+										"startDate",
+										"2023-08-01",
+										"endDate",
+										"2023-08-31"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
