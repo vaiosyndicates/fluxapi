@@ -4,7 +4,7 @@ Holla!
 
 API stands for Application Programming Interface. With API, we can allow two or more applications to talk to each other. APIs are an accessible way to extract and share data within and across organizations. APIs are all around us. Every time you use a rideshare app, using mobile banking, or even playing game, you're using an API
 ## REST API INGREDIENTS
-For implementing REST API, i build simple transfer REST Api using
+For implementing REST API, i build simple CMS REST Api using
 
 - Express
 - MongoDB
@@ -16,16 +16,147 @@ For implementing REST API, i build simple transfer REST Api using
 - JWT
 - Moment
 - Nodemon
-  
-And for Unit testing :
-- Jest
-- Supertest
-- Cross-env
 
 API Documentation using
 - Swagger JS Doc
 - Swagger UI Express
-  
+
+## Endpoint List
+### Authentification
+#### REGISTRATION
+
+```js
+Method: POST
+/api/auth/register
+```
+
+Field  | Data | Desc
+--- | --- | ---
+name| string | Mandatory
+email|string | Mandatory
+role| string | Mandatory
+password| string | Mandatory
+
+
+#### LOGIN
+
+```js
+Method: POST
+/api/auth/register
+```
+
+Field  | Data | Desc
+--- | --- | ---
+email|string | Mandatory
+password| string | Mandatory
+
+
+
+
+#### RESET PASSWORD
+
+```js
+Method: POST
+/api/auth/reset
+```
+
+Field  | Data | Desc
+--- | --- | ---
+email|string | Mandatory
+oldPassword| string | Mandatory
+newPassword|string | Mandatory
+confirmationPassword| string | Mandatory  
+---
+---
+
+### User
+Your account must be approved by Approver before using this endpoint
+
+#### GET ARTICLE
+```js
+Method: GET
+Authorization: Bearer JWT
+
+/api/user/:iduser/articles/all
+```
+#### CREATE ARTICLE
+```js
+Method: POST
+Authorization: Bearer JWT
+
+/api/user/articles
+```
+
+Field  | Data | Desc
+--- | --- | ---
+idUser|string | Mandatory
+title| string | Mandatory
+excerpt|string | Mandatory
+body| string | Mandatory
+tag| string array | Mandatory
+
+#### UPDATE ARTICLE
+```js
+Method: PUT
+Authorization: Bearer JWT
+
+/api/user/:iduser/articles/:idarticle
+```
+
+#### Parameter
+Field  | Data | Desc
+--- | --- | ---
+iduser| string  | Mandatory ( ID User )
+idarticle| string  | Mandatory ( ID Article )
+
+
+#### Request Body
+Field  | Data | Desc
+--- | --- | ---
+idUser|string | Mandatory
+title| string | Mandatory
+excerpt|string | Mandatory
+body| string | Mandatory
+tag| string array | Mandatory 
+
+#### DELETE ARTICLE
+```js
+Method: DELETE
+Authorization: Bearer JWT
+
+/api/user/:iduser/articles/:idarticle
+```
+
+#### Parameter
+Field  | Data | Desc
+--- | --- | ---
+iduser| string  | Mandatory ( ID User )
+idarticle| string  | Mandatory ( ID Article )
+
+---
+---
+
+### Public
+### GET ARTICLES
+```js
+Method: GET
+
+/api/articles
+```
+
+### GET DETAIL ARTICLE
+```js
+Method: GET
+
+/api/articles/:idarticle
+```
+#### Parameter
+Field  | Data | Desc
+--- | --- | ---
+idarticle| string  | Mandatory ( ID Article )
+
+---
+---
 
 ## Deployment
 
@@ -49,36 +180,6 @@ The swagger doc can be access by using
 
 <a href="https://ibb.co/kyR2SzS"><img src="https://i.ibb.co/cvGhrRr/swagger.png" alt="swagger" border="0"></a>
 
-## Unit Testing
-There are 5 test case in this repo
-- Get user
-- Register User
-- Login User
-- Create transfer transaction
-- Update status transfer transaction
-
-You can run them by using
-```
-npm run test
-```
-and the example result will be like this
-```
-  GET /api/auth
-    √ [POSITIVE] should return all users (386 ms)
-  POST /api/auth/register
-    √ [POSITIVE] should register user with APPROVER role (392 ms)
-  POST /api/auth/login
-    √ [POSITIVE] should login user with APPROVER role (198 ms)
-  PUT: update status trx id with REJECT status
-    √ [POSITIF It should update trx status and return response 200. (165 ms)   
-  POST /api/transaction
-    √ [POSITIVE] should post transfer request with APPROVER role (168 ms)      
-
-Test Suites: 1 passed, 1 total
-Tests:       5 passed, 5 total
-Snapshots:   0 total
-Time:        36.896 s
-```
 
 ## Ads on
 If the swagger doc can't be run / not working properly, i already attached Postman collection. So you can test the API using Postman
