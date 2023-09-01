@@ -159,10 +159,12 @@ idarticle| string  | Mandatory ( ID Article )
 ---
 
 ## Deployment
+This project successfully deploy at
+> Express : https://week-11-vaiosyndicates-production.up.railway.app/
 
-You can simply fork or clone this repo by using
+For local development, you can simply fork or clone this repo by using
 ```terminal
-  git clone https://github.com/vaiosyndicates/week-10-vaiosyndicates.git
+  git clone https://github.com/vaiosyndicates/week-11-vaiosyndicates.git
 ```
 
 after that you can run for installing dependecies
@@ -171,15 +173,16 @@ npm install
 ```
 And for running the project, you can simply using this command
 ```js
-nodemon run
+npm start
 ```
 The swagger doc can be access by using 
 ```
  http://localhost:3001/api-docs
 ```
 
-<a href="https://ibb.co/kyR2SzS"><img src="https://i.ibb.co/cvGhrRr/swagger.png" alt="swagger" border="0"></a>
 
+
+<a href="https://ibb.co/SJmTL5C"><img src="https://i.ibb.co/Wsz9TGJ/swagger.png" alt="swagger" border="0"></a>
 
 ## Ads on
 If the swagger doc can't be run / not working properly, i already attached Postman collection. So you can test the API using Postman
