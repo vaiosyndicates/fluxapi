@@ -160,7 +160,8 @@ idarticle| string  | Mandatory ( ID Article )
 
 ## Deployment
 This project successfully deploy at
-> Express : https://week-11-vaiosyndicates-production.up.railway.app/
+> Express : https://fluxapi-production.up.railway.app
+> Swagger Doc : https://fluxapi-production.up.railway.app/api-docs/
 
 For local development, you can simply fork or clone this repo by using
 ```terminal
