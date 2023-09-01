@@ -1,4 +1,3 @@
-const adminService = require("../../service/transaction")
 const userManagement = require("../../service/auth")
 const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken')

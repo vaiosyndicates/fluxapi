@@ -1,6 +1,5 @@
 const express = require('express')
 const authRouter = require('./routes/AuthRoutes')
-const trxRouter = require('./routes/TransferRoutes')
 const approvalRouter = require('./routes/ApprovalRoutes')
 const adminRouter = require('./routes/AdminRoutes')
 const postRouter = require('./routes/PostRoutes')

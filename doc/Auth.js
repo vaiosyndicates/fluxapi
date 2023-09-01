@@ -3,45 +3,7 @@
  * tags:
  *   name: Auth
  *   description: Authentification managing API
- * /auth:
- *   get:
- *     summary: Retrieve a list of users.
- *     tags: [Auth]
- *     responses:
- *       200:
- *         description: A list of users.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 responseCode:
- *                  type: integer
- *                  example: 200
- *                 message:
- *                  type: string
- *                  example: success
- *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       id:
- *                         type: string
- *                         description: The user ID.
- *                         example: 64e5f7847e55cbbd62b91a40
- *                       name:
- *                         type: string
- *                         description: The user's name.
- *                         example: John doe
- *                       role:
- *                         type: string
- *                         description: The user's role.
- *                         example: approver
- *                       createdAt:
- *                         type: string
- *                         format: date
- *                         example: 2023-08-23T12:11:48.491Z
+ * 
  * /auth/register:
  *   post:
  *     summary:   Register user.
@@ -57,10 +19,15 @@
  *                 type: string
  *                 description: The user's name.
  *                 example: sesilia
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: The user's email.
+ *                 example: sesilia@gmail.com
  *               role:
- *                 type: integer
- *                 description: The user's role. User role value will be represent using integer number. 0 for users, 1 for approver, 2 for admin
- *                 example: 1
+ *                 type: string
+ *                 description: The user's role. Accepted role only maker, approver
+ *                 example: maker
  *               password:
  *                 type: string
  *                 description: The user's password. The valid value is raw / plain text. And will be hashed later
@@ -78,24 +45,7 @@
  *                  example: 200
  *                 message:
  *                  type: string
- *                  example: success
- *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       name:
- *                         type: string
- *                         description: The user's name.
- *                         example: sesilia
- *                       role:
- *                         type: string
- *                         description: The user's role.
- *                         example: approver
- *                       createdAt:
- *                         type: string
- *                         format: date
- *                         example: 2023-08-23T12:11:48.491Z 
+ *                  example: success 
  * /auth/login:
  *   post:
  *     summary: Login user.
@@ -107,10 +57,11 @@
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               email:
  *                 type: string
- *                 description: The user's name.
- *                 example: sesilia
+ *                 format: email
+ *                 description: The user's email.
+ *                 example: sesilia@gmail.com
  *               password:
  *                 type: string
  *                 description: The user's password. The valid value is raw / plain text. And will be hashed later
@@ -136,5 +87,46 @@
  *                     type: string
  *                     description: The user ID.
  *                     example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
- * 
+  * /auth/reset:
+ *   post:
+ *     summary: Reset password for all roles.
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: The user's email.
+ *                 example: sesilia@gmail.com
+ *               oldPassword:
+ *                 type: string
+ *                 description: The user's old password. The valid value is raw / plain text. And will be hashed later
+ *                 example: lalala
+ *               newPassword:
+ *                 type: string
+ *                 description: The user's new password. The valid value is raw / plain text. And will be hashed later
+ *                 example: lalala
+ *               confirmationPassword:
+ *                 type: string
+ *                 description: The user's confitmation password. The valid value is raw / plain text and match with new password.The password will be hashed later
+ *                 example: lalala
+ *     responses:
+ *       200:
+ *         description: Success login will return token jwt.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 responseCode:
+ *                  type: integer
+ *                  example: 200
+ *                 message:
+ *                  type: string
+ *                  example: success reset password
  */
