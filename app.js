@@ -6,7 +6,7 @@ const postRouter = require('./routes/PostRoutes')
 const publicRouter = require('./routes/PublicRoutes')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const connect = require('./db')
+const connectDB = require('./db')
 const bodyParser = require('body-parser')
 const swaggerJsdoc = require("swagger-jsdoc"),
       swaggerUi = require("swagger-ui-express");
@@ -15,7 +15,7 @@ dotenv.config()
 const app = express()
 
 
-connect.db
+connectDB();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
