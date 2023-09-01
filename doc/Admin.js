@@ -16,8 +16,7 @@
  * /admin/users:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all user.
  *     tags: [Admins]
  *     responses:
@@ -62,8 +61,7 @@
  * /admin/users/{iduser}:
  *   patch:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Update status user fromnot approve to approve.
  *     tags: [Admins]
  *     parameters:
@@ -89,8 +87,7 @@
  *                  example: success update user
  *   delete:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Delete user.
  *     tags: [Admins]
  *     parameters:

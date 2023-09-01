@@ -16,8 +16,7 @@
  * /user/{iduser}/articles/all:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all post article by user id.
  *     parameters:
  *       - in: path
@@ -88,8 +87,7 @@
  * /user/{iduser}/articles/{idarticle}:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all post article by user id and article id
  *     parameters:
  *       - in: path
@@ -166,8 +164,7 @@
  *                         example: 2023-08-23T12:11:48.491Z 
  *   delete:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Delete article by article id
  *     parameters:
  *       - in: path
@@ -200,8 +197,7 @@
  *                  example: success
  *   put:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Update article by article id and active user
  *     parameters:
  *       - in: path
@@ -257,8 +253,7 @@
  * /user/{iduser}/tag/articles:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all post article by user id and article id
  *     parameters:
  *       - in: path
@@ -340,8 +335,7 @@
  * /user/{iduser}/articles:
  *   post:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary: Create article for authenticate member
  *     tags: [User]
  *     requestBody:
@@ -387,8 +381,7 @@
 * /user/{iduser}/trash/all:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all post in trash by user id / active user.
  *     parameters:
  *       - in: path
@@ -456,8 +449,7 @@
  * /user/{iduser}/trash/{idtrash}/restore:
  *   put:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Restore article to post table and make flag deleted to false
  *     parameters:
  *       - in: path

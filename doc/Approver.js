@@ -13,11 +13,10 @@
  * tags:
  *   name: Approver
  *   description: Article managing API ( Approver )
- * /approver/users:
+ * /approval/users:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all user with role maker.
  *     tags: [Approver]
  *     responses:
@@ -59,11 +58,10 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
- * /approver/users/{iduser}/articles:
+ * /approval/users/{iduser}/articles:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all article by specific user.
  *     tags: [Approver]
  *     parameters:
@@ -131,11 +129,10 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z 
- * /approver/users/{iduser}/articles/tag:
+ * /approval/users/{iduser}/articles/tag:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get all post by specific tag
  *     parameters:
  *       - in: path
@@ -214,11 +211,10 @@
  *                         type: string
  *                         format: date
  *                         example: 2023-08-23T12:11:48.491Z
- * /approver/users/{iduser}/articles/{idarticle}:
+ * /approval/users/{iduser}/articles/{idarticle}:
  *   get:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Get detail article by user id and article id
  *     parameters:
  *       - in: path
@@ -295,8 +291,7 @@
  *                         example: 2023-08-23T12:11:48.491Z
  *   put:
  *     security:
- *      -  security:
- *          - BearerAuth[]
+ *      - BearerAuth: []
  *     summary:   Update status article from not approve to approve
  *     parameters:
  *       - in: path
